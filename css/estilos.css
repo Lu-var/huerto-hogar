@@ -5,6 +5,11 @@ body {
     margin: 0;
 }
 
+/* Hace que el padding y borde no agranden el ancho total de los elementos. */
+* {
+    box-sizing: border-box;
+}
+
 header {
     background-color: #2E8B57;
     color: white;
@@ -159,7 +164,7 @@ footer {
     transform: translateY(-3px);
 }
 
-/* Productos */ 
+/* Zona superior de productos y carrito. */ 
 
 .zona-superior {
     display: flex;
@@ -183,10 +188,23 @@ footer {
     font-weight: bold;
 }
 
-/* Categorías */
+.boton-cantidad {
+    width: 25px;
+    height: 25px;
+    padding: 0;
+}
+
+.boton-quitar {
+    padding: 5px;
+}
+
+/* Categorías de productos responsivas. */
 
 .categoria {
     padding: 15px 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .categoria h3 {
@@ -194,23 +212,23 @@ footer {
 }
 
 .categoria article {
-    display: inline-block;
-    vertical-align: top;
+    flex: 1 1 250px;
 }
 
-/* Productos */
+/* Tarjetas de productos. */
 
 article {
     background-color: white;
     padding: 20px;
-    margin: 10px;
+    margin: 0;
     border: 1px solid #ddd;
     text-align: center;
-    width: 250px;
+    width: 100%;
 }
 
 article img {
     width: 200px;
+    max-width: 100%;
     height: 200px;
     object-fit: contain;
 }

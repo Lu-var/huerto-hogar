@@ -1,5 +1,6 @@
 const formulario = document.getElementById("formulario-contacto");
 
+// Valida que el formulario de contacto tenga datos antes de enviarse.
 if (formulario) {
 
     formulario.addEventListener("submit", function(event) {
@@ -26,40 +27,151 @@ if (formulario) {
 
 }
 
-let carrito = 0;
+let carrito = [];
 let total = 0;
-let productosCarrito = [];
-function agregarAlCarrito(nombre, precio) {
 
-    carrito = carrito + 1;
-    total = total + precio;
+// Agrega un producto al carrito o aumenta su cantidad si ya existe.
+function agregarAlCarrito(nombre, precio, unidad) {
+    
+    const productoExistente = carrito.find(function(producto) {
+        return producto.nombre === nombre;
+    });
 
-    productosCarrito.push(nombre);
+    if (productoExistente) {
 
-    document.getElementById("contador-carrito").textContent =
-        "Carrito: " + carrito + " productos";
-
-    document.getElementById("lista-carrito").innerHTML =
-        productosCarrito.join("<br>");
-
-    document.getElementById("total-carrito").textContent =
-    "Total: $" + total;
-    console.log("Producto: " + nombre);
-    console.log("Precio: $" + precio);
-    console.log("Total: $" + total);
+        productoExistente.cantidad++;
+    } else {
+        carrito.push({
+            nombre: nombre,
+            precio: precio,
+            unidad: unidad,
+            cantidad: 1
+        });
+        
+    }
+    
+    mostrarCarrito();
 }
+
+// Suma una unidad al producto seleccionado.
+function aumentarCantidad(nombre) {
+
+    carrito.forEach(function(producto) {
+        if (producto.nombre === nombre) {
+            producto.cantidad++;
+        }
+    });
+
+    mostrarCarrito();
+}
+
+// Resta una unidad y confirma antes de quitar el producto si queda en cero.
+function disminuirCantidad(nombre) {
+
+    carrito.forEach(function(producto) {
+        if (producto.nombre === nombre) {
+            if (producto.cantidad === 1) {
+                const confirmar = confirm("Quieres quitar " + producto.nombre + " del carrito?");
+
+                if (confirmar) {
+                    producto.cantidad--;
+                }
+            } else {
+                producto.cantidad--;
+            }
+        }
+    });
+
+    carrito = carrito.filter(function(producto) {
+        return producto.cantidad > 0;
+    });
+
+    mostrarCarrito();
+}
+
+// Elimina un producto completo del carrito.
+function quitarProducto(nombre) {
+
+    const producto = carrito.find(function(producto) {
+        return producto.nombre === nombre;
+    });
+
+    if (producto && producto.cantidad === 1) {
+        const confirmar = confirm("Quieres quitar " + producto.nombre + " del carrito?");
+
+        if (!confirmar) {
+            return;
+        }
+    }
+
+    carrito = carrito.filter(function(producto) {
+        return producto.nombre !== nombre;
+    });
+
+    mostrarCarrito();
+}
+
+// Actualiza la lista, el contador y el total que se muestran en pantalla.
+function mostrarCarrito() {
+
+    const listaCarrito = document.getElementById("lista-carrito");
+    const contadorCarrito = document.getElementById("contador-carrito");
+    const totalCarrito = document.getElementById("total-carrito");
+
+    total = 0;
+
+    let cantidadProductos = 0;
+    let contenido = "";
+
+     carrito.forEach(function(producto) {
+
+        total = total + (producto.precio * producto.cantidad);
+
+        cantidadProductos = cantidadProductos + producto.cantidad;
+
+        contenido += producto.nombre + " x " + producto.cantidad + " ";
+        contenido += "<button class=\"boton-cantidad\" onclick=\"disminuirCantidad('" + producto.nombre + "')\">-</button> ";
+        contenido += "<button class=\"boton-cantidad\" onclick=\"aumentarCantidad('" + producto.nombre + "')\">+</button> ";
+        contenido += "<button class=\"boton-quitar\" onclick=\"quitarProducto('" + producto.nombre + "')\">Quitar</button><br>";
+        contenido += "<small>$" + producto.precio + " por " + producto.unidad + "</small><br>";
+        contenido += "<br>";
+    });
+
+    if (carrito.length === 0) {
+
+        listaCarrito.textContent =
+            "No hay productos en el carrito.";
+
+    } else {
+
+        listaCarrito.innerHTML = contenido;
+
+    }
+
+    contadorCarrito.textContent =
+        "Carrito: " + cantidadProductos + " productos";
+
+    totalCarrito.textContent =
+        "Total: $" + total;
+}
+
+
+// Vacía todo el carrito después de pedir confirmación.
 function vaciarCarrito() {
 
-    carrito = 0;
+    if (carrito.length === 0) {
+        return;
+    }
+
+    const confirmar = confirm("Quieres vaciar todo el carrito?");
+
+    if (!confirmar) {
+        return;
+    }
+
+    carrito = [];
     total = 0;
-    productosCarrito = [];
 
-    document.getElementById("contador-carrito").textContent =
-        "Carrito: 0 productos";
+    mostrarCarrito();
 
-    document.getElementById("lista-carrito").textContent =
-        "No hay productos en el carrito.";
-
-    document.getElementById("total-carrito").textContent =
-        "Total: $0";
 }
