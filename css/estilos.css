@@ -31,7 +31,159 @@ section {
     padding: 15px 25px;
 }
 
-/* Productos */
+button {
+    background-color: #2E8B57;
+    color: white;
+    padding: 10px;
+    border: none;
+}
+
+button:hover {
+    background-color: #FFD700;
+}
+
+footer {
+    background-color: #8B4513;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+   /* INDEX */
+
+.inicio-principal {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 60px 50px;
+    min-height: 500px;
+    box-sizing: border-box;
+}
+
+.texto-inicio {
+    flex: 1;
+}
+
+.texto-inicio h2 {
+    color: #2E8B57;
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.texto-inicio p {
+    color: #666666;
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.inicio-principal img {
+    width: 500px;
+    height: 350px;
+    object-fit: cover;
+}
+
+.boton-inicio {
+    display: inline-block;
+    background-color: #2E8B57;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.boton-inicio:hover {
+    background-color: #FFD700;
+    color: #333333;
+}
+
+/* Beneficios */
+
+.porque-huertohogar {
+    background-color: white;
+    padding: 40px 50px;
+    text-align: center;
+}
+
+.porque-huertohogar h2 {
+    color: #2E8B57;
+    font-size: 30px;
+}
+
+.beneficios {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.beneficios article {
+    width: 250px;
+    margin: 10px;
+}
+
+.beneficios h3 {
+    color: #8B4513;
+}
+
+.beneficios p {
+    color: #666666;
+    line-height: 1.5;
+}
+
+/* Redes sociales */
+
+.redes-sociales {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.redes-sociales a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #2E8B57;
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.redes-sociales a:hover {
+    background-color: #FFD700;
+    color: #333333;
+    transform: translateY(-3px);
+}
+
+/* Productos */ 
+
+.zona-superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 15px 25px;
+}
+
+#carrito {
+    background-color: white;
+    padding: 15px;
+    border: 1px solid #ddd;
+    width: 280px;
+}
+
+#carrito h3 {
+    color: #2E8B57;
+}
+
+#total-carrito {
+    font-weight: bold;
+}
+
+/* Categorías */
 
 .categoria {
     padding: 15px 25px;
@@ -45,6 +197,8 @@ section {
     display: inline-block;
     vertical-align: top;
 }
+
+/* Productos */
 
 article {
     background-color: white;
@@ -70,31 +224,7 @@ article p {
     color: #666666;
 }
 
-/* Carrito */
-
-#carrito {
-    background-color: white;
-    padding: 15px;
-    border: 1px solid #ddd;
-    width: 280px;
-}
-
-#carrito h3 {
-    color: #2E8B57;
-}
-
-#total-carrito {
-    font-weight: bold;
-}
-
-.zona-superior {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 15px 25px;
-}
-
-/* Nosotros */
+/* NOSOTROS*/
 
 .info-nosotros {
     display: flex;
@@ -107,6 +237,7 @@ article p {
 .info-nosotros:first-child {
     min-height: calc(100vh - 200px);
 }
+
 .texto-nosotros p {
     font-size: 20px;
     line-height: 1.5;
@@ -169,102 +300,30 @@ article p {
     color: #FFD700;
 }
 
+/* CONTACTO*/
 
-button {
-    background-color: #2E8B57;
-    color: white;
+#formulario-contacto {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+#formulario-contacto label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+#formulario-contacto input,
+#formulario-contacto textarea {
     padding: 10px;
-    border: none;
+    border: 1px solid #000000;
 }
 
-button:hover {
-    background-color: #FFD700;
+#formulario-contacto textarea {
+    height: 120px;
+    resize: vertical;
 }
 
-footer {
-    background-color: #8B4513;
-    color: white;
-    padding: 15px;
-    text-align: center;
-
-    /* Inicio */
-
-.inicio-principal {
-    display: flex;
-    align-items: center;
-    gap: 50px;
-    padding: 60px 50px;
-    min-height: 500px;
-    box-sizing: border-box;
-}
-
-.texto-inicio {
-    flex: 1;
-}
-
-.texto-inicio h2 {
-    color: #2E8B57;
-    font-size: 42px;
-    margin-bottom: 20px;
-}
-
-.texto-inicio p {
-    color: #666666;
-    font-size: 20px;
-    line-height: 1.5;
-    margin-bottom: 30px;
-}
-
-.inicio-principal img {
-    width: 500px;
-    height: 350px;
-    object-fit: cover;
-}
-
-.boton-inicio {
-    display: inline-block;
-    background-color: #2E8B57;
-    color: white;
-    padding: 12px 20px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.boton-inicio:hover {
-    background-color: #FFD700;
-    color: #333333;
-}
-
-
-/* Beneficios */
-
-.porque-huertohogar {
-    background-color: white;
-    padding: 40px 50px;
-    text-align: center;
-}
-
-.porque-huertohogar h2 {
-    color: #2E8B57;
-    font-size: 30px;
-}
-
-.beneficios {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.beneficios article {
-    width: 250px;
-    margin: 10px;
-}
-
-.beneficios h3 {
-    color: #8B4513;
-}
-
-.beneficios p {
-    color: #666666;
-    line-height: 1.5;
+#formulario-contacto button {
+    margin-top: 15px;
 }
