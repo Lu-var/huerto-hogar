@@ -28,11 +28,13 @@
         <div>
         <h2>Nuestros productos</h2>
         <p id="contador-carrito">Carrito: 0 productos</p>
+        <button id="boton-mostrar-carrito" onclick="mostrarPanelCarrito()">Mostrar carrito</button>
         </div>
 
         <div id="carrito">
         <h3>Mi carrito</h3>
         <p id="lista-carrito">No hay productos en el carrito.</p>
+        <button onclick="ocultarCarrito()">Ocultar carrito</button>
         <button onclick="vaciarCarrito()">Vaciar carrito</button>
         <p id="total-carrito">Total: $0</p>
         </div>
@@ -76,15 +78,15 @@
             <article>
             <h4>Espinacas Frescas</h4>
             <img src="img/espinaca.jpg" alt="Espinacas Frescas" onclick="mostrarDescripcion(5)">
-            <p>Precio: $700 por 500 g</p>
-            <button onclick="agregarAlCarrito('Espinacas Frescas', 700, '500 g')">Agregar al carrito</button>
+            <p>Precio: $700 por unidad</p>
+            <button onclick="agregarAlCarrito('Espinacas Frescas', 700, 'unidad')">Agregar al carrito</button>
             </article>
 
             <article>
             <h4>Pimientos Tricolores</h4>
             <img src="img/pimentones.jpg" alt="Pimientos Tricolores" onclick="mostrarDescripcion(6)">
-            <p>Precio: $1.500 por kg</p>
-            <button onclick="agregarAlCarrito('Pimientos Tricolores', 1500, 'kg')">Agregar al carrito</button>
+            <p>Precio: $1.500 por unidad</p>
+            <button onclick="agregarAlCarrito('Pimientos Tricolores', 1500, 'unidad')">Agregar al carrito</button>
             </article>
         </section>
             <section class="categoria">

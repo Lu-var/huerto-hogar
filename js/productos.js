@@ -43,7 +43,7 @@ const productos = [
         id: 5,
         nombre: "Espinacas Frescas",
         precio: 700,
-        unidad: "500 g",
+        unidad: "unidad",
         descripcion: "Espinacas frescas ideales para ensaladas y diferentes preparaciones.",
         curiosidad: "La espinaca es una verdura rica en nutrientes.",
         origen: "Huertos organicos locales"
@@ -53,7 +53,7 @@ const productos = [
         id: 6,
         nombre: "Pimientos Tricolores",
         precio: 1500,
-        unidad: "kg",
+        unidad: "unidad",
         descripcion: "Pimientos rojos, verdes y amarillos frescos.",
         curiosidad: "Los distintos colores corresponden principalmente a diferentes grados de maduración.",
         origen: "Huertos organicos locales"

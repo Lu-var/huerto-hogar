@@ -167,25 +167,27 @@ footer {
 /* Zona superior de productos y carrito. */ 
 
 .zona-superior {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    position: relative;
     padding: 15px 25px;
 }
 
 #carrito {
     background-color: white;
-    padding: 15px;
+    padding: 20px;
     border: 1px solid #ddd;
-    width: 280px;
+    width: 340px;
+
+    position: absolute;
+    right: 25px;
+    top: 15px;
 }
 
-#carrito h3 {
-    color: #2E8B57;
-}
+#boton-mostrar-carrito {
+    display: none;
 
-#total-carrito {
-    font-weight: bold;
+    position: absolute;
+    right: 25px;
+    top: 15px;
 }
 
 .boton-cantidad {

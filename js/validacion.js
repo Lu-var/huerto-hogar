@@ -177,6 +177,21 @@ function vaciarCarrito() {
 
 }
 
+// Oculta el carrito y muestra el boton para volver a verlo.
+function ocultarCarrito() {
+
+    document.getElementById("carrito").style.display = "none";
+    document.getElementById("boton-mostrar-carrito").style.display = "inline-block";
+}
+
+// Vuelve a mostrar el carrito.
+function mostrarPanelCarrito() {
+
+    document.getElementById("carrito").style.display = "block";
+    document.getElementById("boton-mostrar-carrito").style.display = "inline-block";
+    document.getElementById("boton-mostrar-carrito").style.display = "none";
+}
+
 // Muestra una ventana flotante con los datos del producto seleccionado.
 function mostrarDescripcion(id) {
 
