@@ -29,6 +29,7 @@ if (formulario) {
 
 let carrito = [];
 let total = 0;
+let productoSeleccionado = null;
 
 // Agrega un producto al carrito o aumenta su cantidad si ya existe.
 function agregarAlCarrito(nombre, precio, unidad) {
@@ -174,4 +175,39 @@ function vaciarCarrito() {
 
     mostrarCarrito();
 
+}
+
+// Muestra una ventana flotante con los datos del producto seleccionado.
+function mostrarDescripcion(id) {
+
+    const producto = productos.find(function(producto) {
+        return producto.id === id;
+    });
+
+    if (producto) {
+        productoSeleccionado = producto;
+
+        document.getElementById("modal-nombre").textContent = producto.nombre;
+        document.getElementById("modal-precio").textContent = "Precio: $" + producto.precio;
+        document.getElementById("modal-unidad").textContent = "Unidad: " + producto.unidad;
+        document.getElementById("modal-origen").textContent = "Origen: " + producto.origen;
+        document.getElementById("modal-descripcion").textContent = "Descripcion: " + producto.descripcion;
+        document.getElementById("modal-curiosidad").textContent = "Curiosidad: " + producto.curiosidad;
+
+        document.getElementById("ventana-producto").style.display = "flex";
+    }
+}
+
+// Agrega al carrito el producto que esta abierto en la ventana flotante.
+function agregarProductoModal() {
+
+    if (productoSeleccionado) {
+        agregarAlCarrito(productoSeleccionado.nombre, productoSeleccionado.precio, productoSeleccionado.unidad);
+    }
+}
+
+// Cierra la ventana flotante del producto.
+function cerrarDescripcion() {
+
+    document.getElementById("ventana-producto").style.display = "none";
 }

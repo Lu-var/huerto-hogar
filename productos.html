@@ -5,6 +5,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos - HuertoHogar</title>
+    <link rel="icon" type="image/png" href="img/Manzana-Fuji.png">
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
@@ -42,21 +43,21 @@
 
             <article>
                 <h4>Manzanas Fuji</h4>
-                <img src="img/Manzana-Fuji.png" alt="Manzanas Fuji">
+                <img src="img/Manzana-Fuji.png" alt="Manzanas Fuji" onclick="mostrarDescripcion(1)">
                 <p>Precio: $1.200 por kg</p>
                 <button onclick="agregarAlCarrito('Manzanas Fuji', 1200, 'kg')">Agregar al carrito</button>
             </article>
 
            <article>
                 <h4>Naranjas Valencia</h4>
-                <img src="img/Naranja-organica.jpg" alt="Naranjas Valencia">
+                <img src="img/Naranja-organica.jpg" alt="Naranjas Valencia" onclick="mostrarDescripcion(2)">
                 <p>Precio: $1.000 por kg</p>
                 <button onclick="agregarAlCarrito('Naranjas Valencia', 1000, 'kg')">Agregar al carrito</button>
             </article>
 
             <article>
                 <h4>Plátanos</h4>
-                <img src="img/Platano-granel.jpg" alt="Plátanos">
+                <img src="img/Platano-granel.jpg" alt="Plátanos" onclick="mostrarDescripcion(3)">
                 <p>Precio: $800 por kg</p>
                 <button onclick="agregarAlCarrito('Plátanos', 800, 'kg')">Agregar al carrito</button>
             </article>
@@ -67,21 +68,21 @@
 
             <article>
                 <h4>Zanahorias Orgánicas</h4>
-                <img src="img/Zanahorias.jpg" alt="Zanahorias Orgánicas">
+                <img src="img/Zanahorias.jpg" alt="Zanahorias Orgánicas" onclick="mostrarDescripcion(4)">
              <p>Precio: $900 por kg</p>
              <button onclick="agregarAlCarrito('Zanahorias Orgánicas', 900, 'kg')">Agregar al carrito</button>
             </article>
 
             <article>
             <h4>Espinacas Frescas</h4>
-            <img src="img/espinaca.jpg" alt="Espinacas Frescas">
+            <img src="img/espinaca.jpg" alt="Espinacas Frescas" onclick="mostrarDescripcion(5)">
             <p>Precio: $700 por 500 g</p>
             <button onclick="agregarAlCarrito('Espinacas Frescas', 700, '500 g')">Agregar al carrito</button>
             </article>
 
             <article>
             <h4>Pimientos Tricolores</h4>
-            <img src="img/pimentones.jpg" alt="Pimientos Tricolores">
+            <img src="img/pimentones.jpg" alt="Pimientos Tricolores" onclick="mostrarDescripcion(6)">
             <p>Precio: $1.500 por kg</p>
             <button onclick="agregarAlCarrito('Pimientos Tricolores', 1500, 'kg')">Agregar al carrito</button>
             </article>
@@ -91,14 +92,14 @@
 
     <article>
         <h4>Miel Orgánica</h4>
-        <img src="img/Miel.jpg" alt="Miel Orgánica">
+        <img src="img/Miel.jpg" alt="Miel Orgánica" onclick="mostrarDescripcion(7)">
         <p>Precio: $5.000 por 500 g</p>
         <button onclick="agregarAlCarrito('Miel Orgánica', 5000, '500 g')">Agregar al carrito</button>
     </article>
 
     <article>
         <h4>Quinua Orgánica</h4>
-        <img src="img/Quinoa.jpg" alt="Quinua Orgánica">
+        <img src="img/Quinoa.jpg" alt="Quinua Orgánica" onclick="mostrarDescripcion(8)">
         <p>Precio: $3.000 por 500 g</p>
        <button onclick="agregarAlCarrito('Quinua Orgánica', 3000, '500 g')">Agregar al carrito</button>
     </article>
@@ -109,18 +110,31 @@
 
     <article >
         <h4>Leche Entera</h4>
-        <img src="img/Leche-blanca.png" alt="Leche Entera">
+        <img src="img/Leche-blanca.png" alt="Leche Entera" onclick="mostrarDescripcion(9)">
         <p>Precio: $1.200 por litro</p>
         <button onclick="agregarAlCarrito('Leche Entera', 1200, 'litro')">Agregar al carrito</button>
     </article>
     </section>
-    
 
     </main>
+
+    <div id="ventana-producto" onclick="cerrarDescripcion()">
+        <div id="contenido-producto" onclick="event.stopPropagation()">
+            <h3 id="modal-nombre"></h3>
+            <p id="modal-precio"></p>
+            <p id="modal-unidad"></p>
+            <p id="modal-origen"></p>
+            <p id="modal-descripcion"></p>
+            <p id="modal-curiosidad"></p>
+            <button onclick="agregarProductoModal()">Agregar al carrito</button>
+            <button onclick="cerrarDescripcion()">Cerrar</button>
+        </div>
+    </div>
 
     <footer>
         <p>HuertoHogar - Productos frescos del campo</p>
     </footer>
+    <script src="js/productos.js"></script>
     <script src="js/validacion.js"></script>
 
 </body>
