@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <title>Productos - HuertoHogar</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <header>
+        <h1>HuertoHogar</h1>
+
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="productos.html">Productos</a>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+
+      <section class="zona-superior">
+
+        <div>
+        <h2>Nuestros productos</h2>
+        <p id="contador-carrito">Carrito: 0 productos</p>
+        </div>
+
+        <div id="carrito">
+        <h3>Mi carrito</h3>
+        <p id="lista-carrito">No hay productos en el carrito.</p>
+        <button onclick="vaciarCarrito()">Vaciar carrito</button>
+        <p id="total-carrito">Total: $0</p>
+        </div>
+
+        </section>  
+        <section class="categoria">   
+            <h3>Frutas Frescas</h3>
+
+            <article>
+                <h4>Manzanas Fuji</h4>
+                <img src="img/Manzana-Fuji.png" alt="Manzanas Fuji">
+                <p>Precio: $1.200 por kg</p>
+                <button onclick="agregarAlCarrito('Manzanas Fuji', 1200)">Agregar al carrito</button>
+            </article>
+
+           <article>
+                <h4>Naranjas Valencia</h4>
+                <img src="img/Naranja-organica.jpg" alt="Naranjas Valencia">
+                <p>Precio: $1.000 por kg</p>
+                <button onclick="agregarAlCarrito('Naranjas Valencia', 1000)">Agregar al carrito</button>
+            </article>
+
+            <article>
+                <h4>Plátanos</h4>
+                <img src="img/Platano-granel.jpg" alt="Plátanos">
+                <p>Precio: $800 por kg</p>
+                <button onclick="agregarAlCarrito('Plátanos', 800)">Agregar al carrito</button>
+            </article>
+
+        </section>
+        <section class="categoria">
+            <h3>Verduras Orgánicas</h3>
+
+            <article>
+                <h4>Zanahorias Orgánicas</h4>
+                <img src="img/Zanahorias.jpg" alt="Zanahorias Orgánicas">
+             <p>Precio: $900 por kg</p>
+             <button onclick="agregarAlCarrito('Zanahorias Orgánicas', 900)">Agregar al carrito</button>
+            </article>
+
+            <article>
+            <h4>Espinacas Frescas</h4>
+            <img src="img/espinaca.jpg" alt="Espinacas Frescas">
+            <p>Precio: $700 por 500 g</p>
+            <button onclick="agregarAlCarrito('Espinacas Frescas', 700)">Agregar al carrito</button>
+            </article>
+
+            <article>
+            <h4>Pimientos Tricolores</h4>
+            <img src="img/pimentones.jpg" alt="Pimientos Tricolores">
+            <p>Precio: $1.500 por kg</p>
+            <button onclick="agregarAlCarrito('Pimientos Tricolores', 1500)">Agregar al carrito</button>
+            </article>
+        </section>
+            <section class="categoria">
+    <h3>Productos Orgánicos</h3>
+
+    <article>
+        <h4>Miel Orgánica</h4>
+        <img src="img/miel.jpg" alt="Miel Orgánica">
+        <p>Precio: $5.000 por 500 g</p>
+        <button onclick="agregarAlCarrito('Miel Orgánica', 5000)">Agregar al carrito</button>
+    </article>
+
+    <article>
+        <h4>Quinua Orgánica</h4>
+        <img src="img/Quinoa.jpg" alt="Quinua Orgánica">
+        <p>Precio: $3.000 por 500 g</p>
+       <button onclick="agregarAlCarrito('Quinua Orgánica', 3000)">Agregar al carrito</button>
+    </article>
+    </section>
+
+    <section class="categoria">
+    <h3>Productos Lácteos</h3>
+
+    <article >
+        <h4>Leche Entera</h4>
+        <img src="img/Leche.jpg" alt="Leche Entera">
+        <p>Precio: $1.200 por litro</p>
+        <button onclick="agregarAlCarrito('Leche Entera', 1200)">Agregar al carrito</button>
+    </article>
+    </section>
+    
+
+    </main>
+
+    <footer>
+        <p>HuertoHogar - Productos frescos del campo</p>
+    </footer>
+    <script src="js/validacion.js"></script>
+
+</body>
+
+</html>

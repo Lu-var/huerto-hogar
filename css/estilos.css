@@ -1,0 +1,270 @@
+body {
+    background-color: #F7F7F7;
+    color: #333333;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+header {
+    background-color: #2E8B57;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    margin-top: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #FFD700;
+}
+
+section {
+    padding: 15px 25px;
+}
+
+/* Productos */
+
+.categoria {
+    padding: 15px 25px;
+}
+
+.categoria h3 {
+    width: 100%;
+}
+
+.categoria article {
+    display: inline-block;
+    vertical-align: top;
+}
+
+article {
+    background-color: white;
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+    width: 250px;
+}
+
+article img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
+
+article h3,
+article h4 {
+    color: #2E8B57;
+}
+
+article p {
+    color: #666666;
+}
+
+/* Carrito */
+
+#carrito {
+    background-color: white;
+    padding: 15px;
+    border: 1px solid #ddd;
+    width: 280px;
+}
+
+#carrito h3 {
+    color: #2E8B57;
+}
+
+#total-carrito {
+    font-weight: bold;
+}
+
+.zona-superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 15px 25px;
+}
+
+/* Nosotros */
+
+.info-nosotros {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+.info-nosotros:first-child {
+    min-height: calc(100vh - 200px);
+}
+.texto-nosotros p {
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+.info-nosotros img {
+    width: 400px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.info-nosotros h2 {
+    color: #2E8B57;
+}
+
+/* Localidades */
+
+.ubicaciones {
+    background-color: #8B4513;
+    color: white;
+    padding: 20px 30px;
+}
+
+.ubicaciones h2 {
+    color: white;
+}
+
+.ubicaciones p {
+    color: white;
+}
+
+.localidades {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+}
+
+.localidades article {
+    background-color: #2E8B57;
+    width: 130px;
+    padding: 5px;
+    margin: 0;
+    text-align: center;
+}
+
+.localidades h3 {
+    color: white;
+    font-size: 16px;
+    margin: 5px;
+}
+
+.localidades a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.localidades a:hover {
+    color: #FFD700;
+}
+
+
+button {
+    background-color: #2E8B57;
+    color: white;
+    padding: 10px;
+    border: none;
+}
+
+button:hover {
+    background-color: #FFD700;
+}
+
+footer {
+    background-color: #8B4513;
+    color: white;
+    padding: 15px;
+    text-align: center;
+
+    /* Inicio */
+
+.inicio-principal {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 60px 50px;
+    min-height: 500px;
+    box-sizing: border-box;
+}
+
+.texto-inicio {
+    flex: 1;
+}
+
+.texto-inicio h2 {
+    color: #2E8B57;
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.texto-inicio p {
+    color: #666666;
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.inicio-principal img {
+    width: 500px;
+    height: 350px;
+    object-fit: cover;
+}
+
+.boton-inicio {
+    display: inline-block;
+    background-color: #2E8B57;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.boton-inicio:hover {
+    background-color: #FFD700;
+    color: #333333;
+}
+
+
+/* Beneficios */
+
+.porque-huertohogar {
+    background-color: white;
+    padding: 40px 50px;
+    text-align: center;
+}
+
+.porque-huertohogar h2 {
+    color: #2E8B57;
+    font-size: 30px;
+}
+
+.beneficios {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.beneficios article {
+    width: 250px;
+    margin: 10px;
+}
+
+.beneficios h3 {
+    color: #8B4513;
+}
+
+.beneficios p {
+    color: #666666;
+    line-height: 1.5;
+}
