@@ -130,7 +130,7 @@ export default function Productos() {
         setCarrito(carrito.filter((p) => p.nombre !== nombre));
     }
 
-    function mostrarCarrito() {
+    // function mostrarCarrito() {
 
         // const listaCarrito = document.getElementById("lista-carrito");
         // const contadorCarrito = document.getElementById("contador-carrito");
@@ -171,10 +171,7 @@ export default function Productos() {
 
         // totalCarrito.textContent =
         //     "Total: $" + total;
-    }
-
-    // En React no hace falta redibujar la interfaz a mano: todo se redibuja
-    // solo cuando cambia el estado. Por eso mostrarCarrito() queda vacio.
+    // }
 
     function vaciarCarrito() {
 
@@ -202,7 +199,6 @@ export default function Productos() {
         }
     }
 
-    // Oculta el carrito y muestra el boton para volver a verlo.
     function ocultarCarrito() {
 
         // document.getElementById("carrito").style.display = "none";
@@ -211,7 +207,6 @@ export default function Productos() {
         setCarritoVisible(false);
     }
 
-    // Vuelve a mostrar el carrito.
     function mostrarPanelCarrito() {
 
         // document.getElementById("carrito").style.display = "block";
@@ -221,7 +216,6 @@ export default function Productos() {
         setCarritoVisible(true);
     }
 
-    // Muestra una ventana flotante con los datos del producto seleccionado.
     function mostrarDescripcion(id) {
 
         // const producto = productos.find(function(producto) {
@@ -248,7 +242,6 @@ export default function Productos() {
         }
     }
 
-    // Agrega al carrito el producto que esta abierto en la ventana flotante.
     function agregarProductoModal() {
 
         // if (productoSeleccionado) {
@@ -260,7 +253,6 @@ export default function Productos() {
         }
     }
 
-    // Cierra la ventana flotante del producto.
     function cerrarDescripcion() {
 
         // document.getElementById("ventana-producto").style.display = "none";
