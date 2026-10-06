@@ -29,6 +29,12 @@ import AdminProductosReportes from './components/AdminProductosReportes.jsx'
 import AdminCategorias from './components/AdminCategorias.jsx'
 import AdminCategoriaNueva from './components/AdminCategoriaNueva.jsx'
 import AdminCategoriaEditar from './components/AdminCategoriaEditar.jsx'
+import AdminUsuarios from './components/AdminUsuarios.jsx'
+import AdminUsuarioNuevo from './components/AdminUsuarioNuevo.jsx'
+import AdminUsuarioDetalle from './components/AdminUsuarioDetalle.jsx'
+import AdminUsuarioEditar from './components/AdminUsuarioEditar.jsx'
+import AdminUsuarioHistorial from './components/AdminUsuarioHistorial.jsx'
+import AdminPerfil from './components/AdminPerfil.jsx'
 
 export function App() {
   return (
@@ -66,6 +72,12 @@ export function App() {
             <Route path="/admin/categorias" element={<AdminCategorias />} />
             <Route path="/admin/categorias/nueva" element={<AdminCategoriaNueva />} />
             <Route path="/admin/categorias/:slug/editar" element={<AdminCategoriaEditar />} />
+            <Route path="/admin/usuarios" element={<AdminUsuarios />} />
+            <Route path="/admin/usuarios/nuevo" element={<AdminUsuarioNuevo />} />
+            <Route path="/admin/usuarios/:id/historial" element={<AdminUsuarioHistorial />} />
+            <Route path="/admin/usuarios/:id/editar" element={<AdminUsuarioEditar />} />
+            <Route path="/admin/usuarios/:id" element={<AdminUsuarioDetalle />} />
+            <Route path="/admin/perfil" element={<AdminPerfil />} />
           </Route>
         </Route>
       </Routes>
