@@ -14,6 +14,10 @@ import Blogs from './components/Blogs.jsx'
 import DetalleBlog from './components/DetalleBlog.jsx'
 import Checkout from './components/Checkout.jsx'
 import ResultadoPago from './components/ResultadoPago.jsx'
+import AccesoAdministracion from './components/AccesoAdministracion.jsx'
+import ProteccionAdministracion from './components/ProteccionAdministracion.jsx'
+import DiseñoAdministracion from './components/DiseñoAdministracion.jsx'
+import AdminInicio from './components/AdminInicio.jsx'
 
 export function App() {
   return (
@@ -35,6 +39,12 @@ export function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/checkout/pago-correcto" element={<ResultadoPago estado="correcto" />} />
           <Route path="/checkout/pago-error" element={<ResultadoPago estado="error" />} />
+        </Route>
+        <Route path="/admin/iniciar-sesion" element={<AccesoAdministracion />} />
+        <Route element={<ProteccionAdministracion />}>
+          <Route element={<DiseñoAdministracion />}>
+            <Route path="/admin" element={<AdminInicio />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>

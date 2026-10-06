@@ -57,6 +57,20 @@ textarea:focus-visible {
     box-shadow: 0 0 0 0.2rem rgb(255 215 0 / 60%);
 }
 
+.encabezado-administracion {
+    background-color: #243746;
+}
+
+.encabezado-administracion .nav-link {
+    color: #ffffff;
+}
+
+.encabezado-administracion .nav-link.active,
+.encabezado-administracion .nav-link:hover,
+.encabezado-administracion .nav-link:focus-visible {
+    color: var(--color-amarillo);
+}
+
 .encabezado-tienda .btn-outline-light {
     min-height: 44px;
 }
