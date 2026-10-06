@@ -26,6 +26,9 @@ import AdminProductoNuevo from './components/AdminProductoNuevo.jsx'
 import AdminProductoEditar from './components/AdminProductoEditar.jsx'
 import AdminProductosCriticos from './components/AdminProductosCriticos.jsx'
 import AdminProductosReportes from './components/AdminProductosReportes.jsx'
+import AdminCategorias from './components/AdminCategorias.jsx'
+import AdminCategoriaNueva from './components/AdminCategoriaNueva.jsx'
+import AdminCategoriaEditar from './components/AdminCategoriaEditar.jsx'
 
 export function App() {
   return (
@@ -60,6 +63,9 @@ export function App() {
             <Route path="/admin/productos/reportes" element={<AdminProductosReportes />} />
             <Route path="/admin/productos/:id/editar" element={<AdminProductoEditar />} />
             <Route path="/admin/productos/:id" element={<AdminProductoDetalle />} />
+            <Route path="/admin/categorias" element={<AdminCategorias />} />
+            <Route path="/admin/categorias/nueva" element={<AdminCategoriaNueva />} />
+            <Route path="/admin/categorias/:slug/editar" element={<AdminCategoriaEditar />} />
           </Route>
         </Route>
       </Routes>
