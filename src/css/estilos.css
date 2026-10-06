@@ -55,6 +55,11 @@ body {
     border-radius: 0.375rem;
 }
 
+.carrito-placeholder {
+    position: sticky;
+    top: 1rem;
+}
+
 header {
     background-color: #2E8B57;
     color: white;

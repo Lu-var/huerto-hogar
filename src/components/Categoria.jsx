@@ -60,7 +60,7 @@ export default function Categoria() {
     return (
         <ContenedorPagina>
             <Row className="g-4">
-                <Col lg={carritoVisible ? 8 : 12}>
+                <Col lg={8}>
                     <EncabezadoSeccion
                         titulo={categoria.nombre}
                         descripcion={`Productos disponibles en ${categoria.nombre.toLowerCase()}.`}

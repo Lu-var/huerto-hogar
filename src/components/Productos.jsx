@@ -43,7 +43,7 @@ export default function Productos() {
     return (
         <ContenedorPagina>
             <Row className="g-4">
-                <Col lg={carritoVisible ? 8 : 12}>
+                <Col lg={8}>
                     <EncabezadoSeccion
                         titulo="Nuestros productos"
                         descripcion="Selecciona un producto para conocer más detalles o agregarlo al carrito."
@@ -68,9 +68,15 @@ export default function Productos() {
                             alOcultar={() => setCarritoVisible(false)}
                         />
                     ) : (
-                        <Button variant="success" onClick={() => setCarritoVisible(true)}>
-                            Mostrar carrito
-                        </Button>
+                        <div className="carrito-placeholder">
+                            <Button
+                                variant="success"
+                                className="w-100"
+                                onClick={() => setCarritoVisible(true)}
+                            >
+                                Mostrar carrito
+                            </Button>
+                        </div>
                     )}
                 </Col>
             </Row>
