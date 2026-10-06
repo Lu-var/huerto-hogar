@@ -28,6 +28,7 @@ describe('checkout y pagos simulados', () => {
 
         fireEvent.click(screen.getByRole('button', { name: 'Confirmar pedido' }))
         expect(screen.getByText('Ingresa una dirección de entrega.')).toBeTruthy()
+        expect(screen.getByLabelText('Dirección de entrega')).toHaveClass('is-invalid')
     })
 
     it('conserva el carrito cuando el pago es rechazado', () => {

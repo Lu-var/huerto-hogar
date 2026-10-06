@@ -11,12 +11,14 @@ function crearSlug(nombre) {
 export default function AdminFormularioCategoria({ categoria, alGuardar, textoBoton = 'Guardar categoría' }) {
     const [nombre, setNombre] = useState(categoria?.nombre || '')
     const [error, setError] = useState('')
+    const [esNombreInvalido, setEsNombreInvalido] = useState(false)
 
     function enviar(evento) {
         evento.preventDefault()
         const nombreLimpio = nombre.trim()
         const id = crearSlug(nombreLimpio)
         if (nombreLimpio.length < 2 || !id) {
+            setEsNombreInvalido(true)
             setError('Ingresa un nombre de categoría válido.')
             return
         }
@@ -30,7 +32,12 @@ export default function AdminFormularioCategoria({ categoria, alGuardar, textoBo
                 <Form onSubmit={enviar} noValidate>
                     <Form.Group className="mb-3" controlId="categoria-nombre">
                         <Form.Label>Nombre de la categoría</Form.Label>
-                        <Form.Control value={nombre} onChange={(evento) => { setNombre(evento.target.value); setError('') }} required />
+                        <Form.Control
+                            value={nombre}
+                            onChange={(evento) => { setNombre(evento.target.value); setEsNombreInvalido(false); setError('') }}
+                            isInvalid={esNombreInvalido}
+                            required
+                        />
                         <Form.Text>El identificador se genera automáticamente a partir del nombre.</Form.Text>
                     </Form.Group>
                     <Button type="submit" variant="success">{textoBoton}</Button>

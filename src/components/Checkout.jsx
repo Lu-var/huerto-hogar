@@ -21,9 +21,16 @@ export default function Checkout() {
         pago: '',
     })
     const [error, setError] = useState('')
+    const [errores, setErrores] = useState({})
 
     function actualizarCampo(evento) {
-        setFormulario((actual) => ({ ...actual, [evento.target.name]: evento.target.value }))
+        const { name, value } = evento.target
+        setFormulario((actual) => ({ ...actual, [name]: value }))
+        setErrores((actual) => {
+            const nuevos = { ...actual }
+            delete nuevos[name]
+            return nuevos
+        })
         setError('')
     }
 
@@ -31,16 +38,19 @@ export default function Checkout() {
         evento.preventDefault()
 
         if (!formulario.direccion.trim()) {
+            setErrores({ direccion: true })
             setError('Ingresa una dirección de entrega.')
             return
         }
 
         if (!formulario.entrega) {
+            setErrores({ entrega: true })
             setError('Selecciona una opción de entrega.')
             return
         }
 
         if (!formulario.pago) {
+            setErrores({ pago: true })
             setError('Selecciona el resultado del pago simulado.')
             return
         }
@@ -97,12 +107,13 @@ export default function Checkout() {
                                         name="direccion"
                                         value={formulario.direccion}
                                         onChange={actualizarCampo}
+                                        isInvalid={Boolean(errores.direccion)}
                                         placeholder="Ejemplo: Avenida Principal 123"
                                     />
                                 </Form.Group>
                                 <Form.Group className="mb-3" controlId="entrega">
                                     <Form.Label>Opción de entrega</Form.Label>
-                                    <Form.Select name="entrega" value={formulario.entrega} onChange={actualizarCampo}>
+                                    <Form.Select name="entrega" value={formulario.entrega} onChange={actualizarCampo} isInvalid={Boolean(errores.entrega)}>
                                         <option value="">Selecciona una opción</option>
                                         <option value="domicilio">Despacho a domicilio</option>
                                         <option value="retiro">Retiro coordinado</option>
@@ -110,7 +121,7 @@ export default function Checkout() {
                                 </Form.Group>
                                 <Form.Group className="mb-4" controlId="pago">
                                     <Form.Label>Resultado del pago simulado</Form.Label>
-                                    <Form.Select name="pago" value={formulario.pago} onChange={actualizarCampo}>
+                                    <Form.Select name="pago" value={formulario.pago} onChange={actualizarCampo} isInvalid={Boolean(errores.pago)}>
                                         <option value="">Selecciona un resultado</option>
                                         <option value="aprobado">Pago aprobado</option>
                                         <option value="rechazado">Pago rechazado</option>

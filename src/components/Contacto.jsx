@@ -16,17 +16,29 @@ const formularioInicial = {
 export default function Contacto() {
     const [formulario, setFormulario] = useState(formularioInicial)
     const [estado, setEstado] = useState(null)
+    const [errores, setErrores] = useState({})
 
     function actualizarCampo(event) {
         const { name, value } = event.target
         setFormulario((actual) => ({ ...actual, [name]: value }))
+        setErrores((actual) => {
+            const nuevos = { ...actual }
+            delete nuevos[name]
+            return nuevos
+        })
         setEstado(null)
     }
 
     function enviarFormulario(event) {
         event.preventDefault()
 
-        if (!formulario.nombre.trim() || !formulario.correo.trim() || !formulario.mensaje.trim()) {
+        const camposFaltantes = {}
+        if (!formulario.nombre.trim()) camposFaltantes.nombre = true
+        if (!formulario.correo.trim()) camposFaltantes.correo = true
+        if (!formulario.mensaje.trim()) camposFaltantes.mensaje = true
+
+        if (Object.keys(camposFaltantes).length > 0) {
+            setErrores(camposFaltantes)
             setEstado({
                 variante: 'danger',
                 mensaje: 'Por favor, completa todos los campos.',
@@ -35,6 +47,7 @@ export default function Contacto() {
         }
 
         if (!formulario.correo.includes('@')) {
+            setErrores({ correo: true })
             setEstado({
                 variante: 'danger',
                 mensaje: 'Por favor, ingresa un correo válido.',
@@ -46,6 +59,7 @@ export default function Contacto() {
             variante: 'success',
             mensaje: 'Mensaje enviado correctamente.',
         })
+        setErrores({})
         setFormulario(formularioInicial)
     }
 
@@ -66,6 +80,7 @@ export default function Contacto() {
                                 name="nombre"
                                 value={formulario.nombre}
                                 onChange={actualizarCampo}
+                                isInvalid={Boolean(errores.nombre)}
                                 autoComplete="name"
                                 required
                             />
@@ -78,6 +93,7 @@ export default function Contacto() {
                                 name="correo"
                                 value={formulario.correo}
                                 onChange={actualizarCampo}
+                                isInvalid={Boolean(errores.correo)}
                                 autoComplete="email"
                                 required
                             />
@@ -90,6 +106,7 @@ export default function Contacto() {
                                 name="mensaje"
                                 value={formulario.mensaje}
                                 onChange={actualizarCampo}
+                                isInvalid={Boolean(errores.mensaje)}
                                 rows={5}
                                 required
                             />

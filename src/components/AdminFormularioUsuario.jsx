@@ -12,9 +12,16 @@ export default function AdminFormularioUsuario({ usuario, alGuardar, textoBoton 
         rol: usuario?.rol || 'cliente',
     })
     const [error, setError] = useState('')
+    const [errores, setErrores] = useState({})
 
     function actualizar(evento) {
-        setCampos((actual) => ({ ...actual, [evento.target.name]: evento.target.value }))
+        const { name, value } = evento.target
+        setCampos((actual) => ({ ...actual, [name]: value }))
+        setErrores((actual) => {
+            const nuevos = { ...actual }
+            delete nuevos[name]
+            return nuevos
+        })
         setError('')
     }
 
@@ -22,14 +29,17 @@ export default function AdminFormularioUsuario({ usuario, alGuardar, textoBoton 
         evento.preventDefault()
         const email = campos.email.trim().toLowerCase()
         if (campos.nombre.trim().length < 2) {
+            setErrores({ nombre: true })
             setError('Ingresa un nombre de al menos dos caracteres.')
             return
         }
         if (!email.includes('@')) {
+            setErrores({ email: true })
             setError('Ingresa un correo electrónico válido.')
             return
         }
         if (!usuario && campos.password.length < 6) {
+            setErrores({ password: true })
             setError('La contraseña debe tener al menos seis caracteres.')
             return
         }
@@ -48,15 +58,15 @@ export default function AdminFormularioUsuario({ usuario, alGuardar, textoBoton 
                 <Form onSubmit={enviar} noValidate>
                     <Form.Group className="mb-3" controlId="usuario-nombre">
                         <Form.Label>Nombre</Form.Label>
-                        <Form.Control name="nombre" value={campos.nombre} onChange={actualizar} required />
+                        <Form.Control name="nombre" value={campos.nombre} onChange={actualizar} isInvalid={Boolean(errores.nombre)} required />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="usuario-email">
                         <Form.Label>Correo electrónico</Form.Label>
-                        <Form.Control type="email" name="email" value={campos.email} onChange={actualizar} required />
+                        <Form.Control type="email" name="email" value={campos.email} onChange={actualizar} isInvalid={Boolean(errores.email)} required />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="usuario-password">
                         <Form.Label>{usuario ? 'Nueva contraseña (opcional)' : 'Contraseña'}</Form.Label>
-                        <Form.Control type="password" name="password" value={campos.password} onChange={actualizar} required={!usuario} />
+                        <Form.Control type="password" name="password" value={campos.password} onChange={actualizar} isInvalid={Boolean(errores.password)} required={!usuario} />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="usuario-rol">
                         <Form.Label>Rol</Form.Label>

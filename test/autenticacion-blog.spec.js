@@ -17,6 +17,7 @@ describe('autenticación y blogs', () => {
 
         fireEvent.click(screen.getByRole('button', { name: 'Crear cuenta' }))
         expect(screen.getByText('Ingresa un nombre de al menos dos caracteres.')).toBeTruthy()
+        expect(screen.getByLabelText('Nombre')).toHaveClass('is-invalid')
     })
 
     it('persiste una sesión simulada y permite cerrarla', () => {

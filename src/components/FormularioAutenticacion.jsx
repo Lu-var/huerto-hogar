@@ -13,9 +13,16 @@ export default function FormularioAutenticacion({ modo }) {
     const navigate = useNavigate()
     const [formulario, setFormulario] = useState({ nombre: '', email: '', password: '' })
     const [error, setError] = useState('')
+    const [errores, setErrores] = useState({})
 
     function actualizarCampo(evento) {
-        setFormulario((actual) => ({ ...actual, [evento.target.name]: evento.target.value }))
+        const { name, value } = evento.target
+        setFormulario((actual) => ({ ...actual, [name]: value }))
+        setErrores((actual) => {
+            const nuevos = { ...actual }
+            delete nuevos[name]
+            return nuevos
+        })
         setError('')
     }
 
@@ -24,16 +31,19 @@ export default function FormularioAutenticacion({ modo }) {
         const email = formulario.email.trim().toLowerCase()
 
         if (esRegistro && formulario.nombre.trim().length < 2) {
+            setErrores({ nombre: true })
             setError('Ingresa un nombre de al menos dos caracteres.')
             return
         }
 
         if (!email.includes('@')) {
+            setErrores({ email: true })
             setError('Ingresa un correo electrónico válido.')
             return
         }
 
         if (formulario.password.length < 6) {
+            setErrores({ password: true })
             setError('La contraseña debe tener al menos seis caracteres.')
             return
         }
@@ -44,6 +54,7 @@ export default function FormularioAutenticacion({ modo }) {
 
             if (esRegistro) {
                 if (usuarioExistente) {
+                    setErrores({ email: true })
                     setError('Ya existe una cuenta con ese correo.')
                     return
                 }
@@ -61,6 +72,7 @@ export default function FormularioAutenticacion({ modo }) {
             }
 
             if (!usuarioExistente || usuarioExistente.password !== formulario.password) {
+                setErrores({ email: true, password: true })
                 setError('El correo o la contraseña no son correctos.')
                 return
             }
@@ -92,6 +104,7 @@ export default function FormularioAutenticacion({ modo }) {
                                 name="nombre"
                                 value={formulario.nombre}
                                 onChange={actualizarCampo}
+                                isInvalid={Boolean(errores.nombre)}
                                 required
                             />
                         </Form.Group>
@@ -103,6 +116,7 @@ export default function FormularioAutenticacion({ modo }) {
                             name="email"
                             value={formulario.email}
                             onChange={actualizarCampo}
+                            isInvalid={Boolean(errores.email)}
                             required
                         />
                     </Form.Group>
@@ -113,6 +127,7 @@ export default function FormularioAutenticacion({ modo }) {
                             name="password"
                             value={formulario.password}
                             onChange={actualizarCampo}
+                            isInvalid={Boolean(errores.password)}
                             required
                         />
                     </Form.Group>

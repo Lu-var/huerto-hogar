@@ -20,9 +20,16 @@ export default function AdminFormularioProducto({ producto, alGuardar, textoBoto
         ? { ...camposIniciales, ...producto, precio: String(producto.precio), stock: producto.stock === undefined ? '' : String(producto.stock) }
         : camposIniciales)
     const [error, setError] = useState('')
+    const [errores, setErrores] = useState({})
 
     function actualizarCampo(evento) {
-        setCampos((actual) => ({ ...actual, [evento.target.name]: evento.target.value }))
+        const { name, value } = evento.target
+        setCampos((actual) => ({ ...actual, [name]: value }))
+        setErrores((actual) => {
+            const nuevos = { ...actual }
+            delete nuevos[name]
+            return nuevos
+        })
         setError('')
     }
 
@@ -33,14 +40,17 @@ export default function AdminFormularioProducto({ producto, alGuardar, textoBoto
         const stock = campos.stock === '' ? undefined : Number(campos.stock)
 
         if (nombre.length < 2) {
+            setErrores({ nombre: true })
             setError('Ingresa un nombre de al menos dos caracteres.')
             return
         }
         if (!Number.isFinite(precio) || precio <= 0) {
+            setErrores({ precio: true })
             setError('Ingresa un precio mayor que cero.')
             return
         }
         if (stock !== undefined && (!Number.isInteger(stock) || stock < 0)) {
+            setErrores({ stock: true })
             setError('El stock debe ser un número entero igual o mayor que cero.')
             return
         }
@@ -64,16 +74,16 @@ export default function AdminFormularioProducto({ producto, alGuardar, textoBoto
                 <Form onSubmit={enviar} noValidate>
                     <Form.Group className="mb-3" controlId="producto-nombre">
                         <Form.Label>Nombre</Form.Label>
-                        <Form.Control name="nombre" value={campos.nombre} onChange={actualizarCampo} required />
+                        <Form.Control name="nombre" value={campos.nombre} onChange={actualizarCampo} isInvalid={Boolean(errores.nombre)} required />
                     </Form.Group>
                     <Stack direction="horizontal" gap={3} className="align-items-start">
                         <Form.Group className="mb-3 flex-fill" controlId="producto-precio">
                             <Form.Label>Precio</Form.Label>
-                            <Form.Control type="number" min="1" name="precio" value={campos.precio} onChange={actualizarCampo} required />
+                            <Form.Control type="number" min="1" name="precio" value={campos.precio} onChange={actualizarCampo} isInvalid={Boolean(errores.precio)} required />
                         </Form.Group>
                         <Form.Group className="mb-3 flex-fill" controlId="producto-stock">
                             <Form.Label>Stock</Form.Label>
-                            <Form.Control type="number" min="0" name="stock" value={campos.stock} onChange={actualizarCampo} placeholder="Sin informar" />
+                            <Form.Control type="number" min="0" name="stock" value={campos.stock} onChange={actualizarCampo} isInvalid={Boolean(errores.stock)} placeholder="Sin informar" />
                         </Form.Group>
                         <Form.Group className="mb-3 flex-fill" controlId="producto-unidad">
                             <Form.Label>Unidad</Form.Label>
