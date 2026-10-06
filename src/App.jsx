@@ -35,6 +35,8 @@ import AdminUsuarioDetalle from './components/AdminUsuarioDetalle.jsx'
 import AdminUsuarioEditar from './components/AdminUsuarioEditar.jsx'
 import AdminUsuarioHistorial from './components/AdminUsuarioHistorial.jsx'
 import AdminPerfil from './components/AdminPerfil.jsx'
+import AdminReportes from './components/AdminReportes.jsx'
+import AdminTienda from './components/AdminTienda.jsx'
 
 export function App() {
   return (
@@ -78,6 +80,8 @@ export function App() {
             <Route path="/admin/usuarios/:id/editar" element={<AdminUsuarioEditar />} />
             <Route path="/admin/usuarios/:id" element={<AdminUsuarioDetalle />} />
             <Route path="/admin/perfil" element={<AdminPerfil />} />
+            <Route path="/admin/reportes" element={<AdminReportes />} />
+            <Route path="/admin/tienda" element={<AdminTienda />} />
           </Route>
         </Route>
       </Routes>
