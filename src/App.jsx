@@ -4,6 +4,10 @@ import Inicio from './components/Inicio.jsx'
 import Productos from './components/Productos.jsx'
 import Nosotros from './components/Nosotros.jsx'
 import Contacto from './components/Contacto.jsx'
+import Categorias from './components/Categorias.jsx'
+import Categoria from './components/Categoria.jsx'
+import Ofertas from './components/Ofertas.jsx'
+import DetalleProducto from './components/DetalleProducto.jsx'
 
 export function App() {
   return (
@@ -12,6 +16,10 @@ export function App() {
         <Route element={<DiseñoAplicacion />}>
           <Route path="/" element={<Inicio />} />
           <Route path="/productos" element={<Productos />} />
+          <Route path="/productos/:id" element={<DetalleProducto />} />
+          <Route path="/categorias" element={<Categorias />} />
+          <Route path="/categorias/:slug" element={<Categoria />} />
+          <Route path="/ofertas" element={<Ofertas />} />
           <Route path="/nosotros" element={<Nosotros />} />
           <Route path="/contacto" element={<Contacto />} />
         </Route>

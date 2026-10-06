@@ -1,5 +1,6 @@
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
+import { Link } from 'react-router-dom'
 
 const imagenesPorProducto = {
     1: '/img/Manzana-Fuji.png',
@@ -32,7 +33,12 @@ export default function TarjetaProducto({ producto, alAgregar, alMostrarDetalle 
                     <Button variant="success" onClick={() => alAgregar(producto)}>
                         Agregar al carrito
                     </Button>
-                    <Button variant="outline-success" onClick={() => alMostrarDetalle(producto)}>
+                    <Button
+                        as={Link}
+                        to={`/productos/${producto.id}`}
+                        variant="outline-success"
+                        onClick={() => alMostrarDetalle(producto)}
+                    >
                         Ver detalle
                     </Button>
                 </div>
