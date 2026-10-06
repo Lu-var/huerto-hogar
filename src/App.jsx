@@ -20,6 +20,12 @@ import DiseñoAdministracion from './components/DiseñoAdministracion.jsx'
 import AdminInicio from './components/AdminInicio.jsx'
 import AdminOrdenes from './components/AdminOrdenes.jsx'
 import AdminDetalleOrden from './components/AdminDetalleOrden.jsx'
+import AdminProductos from './components/AdminProductos.jsx'
+import AdminProductoDetalle from './components/AdminProductoDetalle.jsx'
+import AdminProductoNuevo from './components/AdminProductoNuevo.jsx'
+import AdminProductoEditar from './components/AdminProductoEditar.jsx'
+import AdminProductosCriticos from './components/AdminProductosCriticos.jsx'
+import AdminProductosReportes from './components/AdminProductosReportes.jsx'
 
 export function App() {
   return (
@@ -48,6 +54,12 @@ export function App() {
             <Route path="/admin" element={<AdminInicio />} />
             <Route path="/admin/ordenes" element={<AdminOrdenes />} />
             <Route path="/admin/ordenes/:id" element={<AdminDetalleOrden />} />
+            <Route path="/admin/productos" element={<AdminProductos />} />
+            <Route path="/admin/productos/nuevo" element={<AdminProductoNuevo />} />
+            <Route path="/admin/productos/criticos" element={<AdminProductosCriticos />} />
+            <Route path="/admin/productos/reportes" element={<AdminProductosReportes />} />
+            <Route path="/admin/productos/:id/editar" element={<AdminProductoEditar />} />
+            <Route path="/admin/productos/:id" element={<AdminProductoDetalle />} />
           </Route>
         </Route>
       </Routes>
