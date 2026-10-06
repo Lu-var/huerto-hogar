@@ -1,3 +1,5 @@
+import { crearRepositorio } from './persistencia.js'
+
 export const productos = [
     {
         id: 1,
@@ -89,3 +91,5 @@ export const productos = [
         origen: "Lecherias locales"
     }
 ]
+
+export const productosRepositorio = crearRepositorio('huerto-hogar-productos', productos)

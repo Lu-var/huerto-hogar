@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useParams, Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
@@ -6,13 +7,16 @@ import ContenedorPagina from './ContenedorPagina.jsx'
 import EncabezadoSeccion from './EncabezadoSeccion.jsx'
 import GrillaProductos from './GrillaProductos.jsx'
 import ModalProducto from './ModalProducto.jsx'
+import AlertaEstado from './AlertaEstado.jsx'
 import ResumenCarrito from './ResumenCarrito.jsx'
 import useCarrito from '../hooks/usarCarrito.js'
-import { productos } from '../data/productos.js'
+import { categorias } from '../data/catalogo.js'
 
-export default function Productos() {
+export default function Categoria() {
+    const { slug } = useParams()
     const [productoAbierto, setProductoAbierto] = useState(null)
     const [carritoVisible, setCarritoVisible] = useState(true)
+    const categoria = categorias.find((elemento) => elemento.id === slug)
     const {
         carrito,
         cantidadProductos,
@@ -40,21 +44,37 @@ export default function Productos() {
         quitar(id)
     }
 
+    if (!categoria) {
+        return (
+            <ContenedorPagina>
+                <AlertaEstado variante="warning" titulo="Categoría no encontrada">
+                    No existe una categoría con ese nombre.
+                </AlertaEstado>
+                <Button as={Link} to="/categorias" variant="success">
+                    Ver categorías
+                </Button>
+            </ContenedorPagina>
+        )
+    }
+
     return (
         <ContenedorPagina>
             <Row className="g-4">
                 <Col lg={8}>
                     <EncabezadoSeccion
-                        titulo="Nuestros productos"
-                        descripcion="Selecciona un producto para conocer más detalles o agregarlo al carrito."
+                        titulo={categoria.nombre}
+                        descripcion={`Productos disponibles en ${categoria.nombre.toLowerCase()}.`}
                     />
-                    <GrillaProductos
-                        productos={productos}
-                        alAgregar={agregar}
-                        alMostrarDetalle={setProductoAbierto}
-                    />
+                    {categoria.productos.length === 0 ? (
+                        <AlertaEstado variante="info">No hay productos en esta categoría.</AlertaEstado>
+                    ) : (
+                        <GrillaProductos
+                            productos={categoria.productos}
+                            alAgregar={agregar}
+                            alMostrarDetalle={setProductoAbierto}
+                        />
+                    )}
                 </Col>
-
                 <Col lg={4}>
                     {carritoVisible ? (
                         <ResumenCarrito
@@ -68,19 +88,12 @@ export default function Productos() {
                             alOcultar={() => setCarritoVisible(false)}
                         />
                     ) : (
-                        <div className="carrito-placeholder">
-                            <Button
-                                variant="success"
-                                className="w-100"
-                                onClick={() => setCarritoVisible(true)}
-                            >
-                                Mostrar carrito
-                            </Button>
-                        </div>
+                        <Button variant="success" onClick={() => setCarritoVisible(true)}>
+                            Mostrar carrito
+                        </Button>
                     )}
                 </Col>
             </Row>
-
             <ModalProducto
                 producto={productoAbierto}
                 onClose={() => setProductoAbierto(null)}
