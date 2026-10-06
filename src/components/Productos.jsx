@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import Badge from 'react-bootstrap/Badge'
 import Button from 'react-bootstrap/Button'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
@@ -45,15 +44,10 @@ export default function Productos() {
         <ContenedorPagina>
             <Row className="g-4">
                 <Col lg={carritoVisible ? 8 : 12}>
-                    <div className="d-flex justify-content-between align-items-start gap-3 mb-4">
-                        <EncabezadoSeccion
-                            titulo="Nuestros productos"
-                            descripcion="Selecciona un producto para conocer más detalles o agregarlo al carrito."
-                        />
-                        <Badge bg="success" className="fs-6 text-nowrap">
-                            {cantidadProductos} productos
-                        </Badge>
-                    </div>
+                    <EncabezadoSeccion
+                        titulo="Nuestros productos"
+                        descripcion="Selecciona un producto para conocer más detalles o agregarlo al carrito."
+                    />
                     <GrillaProductos
                         productos={productos}
                         alAgregar={agregar}
