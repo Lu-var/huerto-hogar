@@ -18,6 +18,8 @@ import AccesoAdministracion from './components/AccesoAdministracion.jsx'
 import ProteccionAdministracion from './components/ProteccionAdministracion.jsx'
 import DiseñoAdministracion from './components/DiseñoAdministracion.jsx'
 import AdminInicio from './components/AdminInicio.jsx'
+import AdminOrdenes from './components/AdminOrdenes.jsx'
+import AdminDetalleOrden from './components/AdminDetalleOrden.jsx'
 
 export function App() {
   return (
@@ -44,6 +46,8 @@ export function App() {
         <Route element={<ProteccionAdministracion />}>
           <Route element={<DiseñoAdministracion />}>
             <Route path="/admin" element={<AdminInicio />} />
+            <Route path="/admin/ordenes" element={<AdminOrdenes />} />
+            <Route path="/admin/ordenes/:id" element={<AdminDetalleOrden />} />
           </Route>
         </Route>
       </Routes>
