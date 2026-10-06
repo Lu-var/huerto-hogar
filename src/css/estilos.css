@@ -10,6 +10,36 @@ body {
     box-sizing: border-box;
 }
 
+.encabezado-tienda {
+    background-color: #2E8B57;
+    margin-top: 0;
+}
+
+.encabezado-tienda .navbar-brand,
+.encabezado-tienda .nav-link {
+    color: white;
+}
+
+.encabezado-tienda .nav-link {
+    margin: 0;
+}
+
+.encabezado-tienda .nav-link:hover,
+.encabezado-tienda .nav-link:focus-visible,
+.encabezado-tienda .navbar-brand:hover,
+.encabezado-tienda .navbar-brand:focus-visible {
+    color: #FFD700;
+}
+
+.encabezado-tienda .navbar-toggler:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 215, 0, 0.6);
+}
+
+.pie-pagina {
+    background-color: #8B4513;
+    color: white;
+}
+
 header {
     background-color: #2E8B57;
     color: white;
