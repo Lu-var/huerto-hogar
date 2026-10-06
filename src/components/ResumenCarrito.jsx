@@ -1,6 +1,7 @@
 import Alert from 'react-bootstrap/Alert'
 import Button from 'react-bootstrap/Button'
 import ListGroup from 'react-bootstrap/ListGroup'
+import { Link } from 'react-router-dom'
 import ProductoCarrito from './ProductoCarrito.jsx'
 
 export default function ResumenCarrito({
@@ -39,6 +40,9 @@ export default function ResumenCarrito({
                     </ListGroup>
                     <Button variant="outline-danger" size="sm" onClick={alVaciar}>
                         Vaciar carrito
+                    </Button>
+                    <Button as={Link} to="/checkout" variant="success" className="mt-2 w-100">
+                        Ir al checkout
                     </Button>
                 </>
             )}

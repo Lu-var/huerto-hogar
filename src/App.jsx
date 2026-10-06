@@ -12,6 +12,8 @@ import Registro from './components/Registro.jsx'
 import IniciarSesion from './components/IniciarSesion.jsx'
 import Blogs from './components/Blogs.jsx'
 import DetalleBlog from './components/DetalleBlog.jsx'
+import Checkout from './components/Checkout.jsx'
+import ResultadoPago from './components/ResultadoPago.jsx'
 
 export function App() {
   return (
@@ -30,6 +32,9 @@ export function App() {
           <Route path="/iniciar-sesion" element={<IniciarSesion />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/blogs/:id" element={<DetalleBlog />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout/pago-correcto" element={<ResultadoPago estado="correcto" />} />
+          <Route path="/checkout/pago-error" element={<ResultadoPago estado="error" />} />
         </Route>
       </Routes>
     </BrowserRouter>
