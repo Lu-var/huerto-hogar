@@ -60,6 +60,10 @@ body {
     top: 1rem;
 }
 
+.tarjeta-autenticacion {
+    max-width: 34rem;
+}
+
 header {
     background-color: #2E8B57;
     color: white;

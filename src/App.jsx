@@ -8,6 +8,10 @@ import Categorias from './components/Categorias.jsx'
 import Categoria from './components/Categoria.jsx'
 import Ofertas from './components/Ofertas.jsx'
 import DetalleProducto from './components/DetalleProducto.jsx'
+import Registro from './components/Registro.jsx'
+import IniciarSesion from './components/IniciarSesion.jsx'
+import Blogs from './components/Blogs.jsx'
+import DetalleBlog from './components/DetalleBlog.jsx'
 
 export function App() {
   return (
@@ -22,6 +26,10 @@ export function App() {
           <Route path="/ofertas" element={<Ofertas />} />
           <Route path="/nosotros" element={<Nosotros />} />
           <Route path="/contacto" element={<Contacto />} />
+          <Route path="/registro" element={<Registro />} />
+          <Route path="/iniciar-sesion" element={<IniciarSesion />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/blogs/:id" element={<DetalleBlog />} />
         </Route>
       </Routes>
     </BrowserRouter>
