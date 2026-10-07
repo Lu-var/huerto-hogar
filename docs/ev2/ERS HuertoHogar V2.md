@@ -20,19 +20,19 @@ online de productos frescos. La versión 2 actualiza el ERS de la Evaluación Pa
 describir la implementación frontend realizada con React, React Router, React-Bootstrap,
 persistencia local y pruebas unitarias con Jasmine y Karma.
 
-El documento está dirigido al equipo de desarrollo, a quienes revisan la evaluación y a las
-personas responsables de probar y presentar el sistema.
+El documento está dirigido al equipo de desarrollo, a quienes evalúan la entrega y a las
+personas responsables de probar y presentar la aplicación.
 
 ### 1.2 Ámbito del sistema
 
 HuertoHogar permite consultar productos, categorías, ofertas y blogs; registrar usuarios,
-iniciar sesión, administrar un carrito, completar un checkout simulado y consultar el resultado
+iniciar sesión, administrar un carrito, completar un checkout simulado y revisar el resultado
 de un pago simulado. También incorpora un panel administrativo para gestionar órdenes, productos,
 inventario, categorías, usuarios, reportes y perfil.
 
-La implementación entregada funciona como frontend ejecutable en navegador. Los datos se
-persisten localmente mediante `localStorage`; por lo tanto, la autenticación, el pago y la
-persistencia no representan todavía un backend productivo ni un mecanismo de seguridad real.
+La implementación entregada funciona como frontend ejecutable en un navegador. La aplicación
+guarda los datos localmente mediante `localStorage`; por eso, la autenticación, el pago y la
+persistencia no representan un backend productivo ni un mecanismo de seguridad real.
 
 ### 1.3 Definiciones, acrónimos y abreviaturas
 
@@ -47,14 +47,7 @@ persistencia no representan todavía un backend productivo ni un mecanismo de se
 - **Administrador:** usuario con rol `admin` para acceder al panel administrativo.
 - **RUT:** identificador tributario chileno solicitado en el registro de usuario.
 
-### 1.4 Referencias
-
-1. DSY1104, Evaluación Parcial 1, Anexo 4, ERS de HuertoHogar.
-2. DSY1104, Evaluación Parcial 2, Anexo 1, instrucciones de frontend y pruebas unitarias.
-3. DSY1104, Evaluación Parcial 2, pauta de evaluación.
-4. Código fuente y suites de pruebas de este repositorio.
-
-### 1.5 Visión general del documento
+### 1.4 Visión general del documento
 
 La sección 2 describe el contexto del sistema, sus usuarios, restricciones y dependencias. La
 sección 3 especifica las interfaces, requisitos funcionales y no funcionales. La sección 4

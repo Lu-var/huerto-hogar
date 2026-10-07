@@ -60,12 +60,12 @@ export default function AccesoAdministracion() {
         <ContenedorPagina>
             <EncabezadoSeccion
                 titulo="Acceso administrativo"
-                descripcion="Entrada simulada para revisar las vistas de administración del proyecto."
+                descripcion="Acceso de demostración para revisar las vistas de administración del proyecto."
             />
             <Card className="mx-auto tarjeta-autenticacion">
                 <Card.Body>
                     <Card.Text className="text-muted">
-                        Usa la cuenta de demostración incluida en esta aplicación local.
+                        La cuenta de demostración ya está cargada para revisar el flujo administrativo en esta aplicación local.
                     </Card.Text>
                     {error && <Alert variant="danger">{error}</Alert>}
                     <Form onSubmit={enviarFormulario} noValidate>
